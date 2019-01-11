@@ -1,7 +1,6 @@
 class VotesController < ApplicationController
   before_action :set_poll
   before_action :set_vote, only: [:update, :destroy]
-  after_action :respond_with_poll
 
   def create
     Vote.create(
@@ -9,14 +8,17 @@ class VotesController < ApplicationController
       name: params[:name],
       times: 1
     )
+    json_response(@poll)
   end
 
   def update
     @vote.update(times: @vote.times + 1)
+    json_response(@poll)
   end
 
   def destroy
     @vote.delete
+    json_response(@poll)
   end
 
   private
@@ -27,9 +29,5 @@ class VotesController < ApplicationController
 
   def set_vote
     @vote = Vote.find(params[:id])
-  end
-
-  def response_with_poll
-    json_response(@poll)
   end
 end
