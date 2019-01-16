@@ -36,7 +36,7 @@ class UserPollsController < ApplicationController
   end
 
   def user_poll_params
-    params.require(:user_poll).permit(:title, :question)
+    params.require(:user_poll).permit(:title, :question, votes_attributes: [:name])
   end
 
   def authorize_request

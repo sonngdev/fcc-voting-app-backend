@@ -3,11 +3,7 @@ class VotesController < ApplicationController
   before_action :set_vote, only: [:update, :destroy]
 
   def create
-    Vote.create(
-      poll_id: params[:poll_id],
-      name: params[:name],
-      times: 1
-    )
+    @poll.votes.create(name: params[:name])
     json_response(@poll)
   end
 
