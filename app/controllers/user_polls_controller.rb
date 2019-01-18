@@ -19,12 +19,12 @@ class UserPollsController < ApplicationController
   end
 
   def update
-    @poll.update(user_poll_params)
+    @poll.update!(user_poll_params)
     json_response(@poll.reload)
   end
 
   def destroy
-    @poll.delete
+    @poll.destroy!
     @polls = Poll.all.paginate(page: params[:page], per_page: params[:per_page] || 10)
     json_response(@polls)
   end
@@ -36,7 +36,7 @@ class UserPollsController < ApplicationController
   end
 
   def user_poll_params
-    params.require(:user_poll).permit(:title, :question, votes_attributes: [:name])
+    params.require(:user_poll).permit(:title, :question, votes_attributes: [:name, :times])
   end
 
   def authorize_request
