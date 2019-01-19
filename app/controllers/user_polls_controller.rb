@@ -5,7 +5,7 @@ class UserPollsController < ApplicationController
   before_action :set_poll, only: [:show, :update, :destroy]
 
   def index
-    @polls = current_user.polls.paginate(page: params[:page], per_page: params[:per_page] || 10)
+    @polls = current_user.polls
     json_response(@polls)
   end
 
@@ -25,7 +25,7 @@ class UserPollsController < ApplicationController
 
   def destroy
     @poll.destroy!
-    @polls = current_user.polls.paginate(page: params[:page], per_page: params[:per_page] || 10)
+    @polls = current_user.polls
     json_response(@polls)
   end
 
