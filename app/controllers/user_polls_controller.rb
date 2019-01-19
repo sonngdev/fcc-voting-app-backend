@@ -25,7 +25,7 @@ class UserPollsController < ApplicationController
 
   def destroy
     @poll.destroy!
-    @polls = Poll.all.paginate(page: params[:page], per_page: params[:per_page] || 10)
+    @polls = current_user.polls.paginate(page: params[:page], per_page: params[:per_page] || 10)
     json_response(@polls)
   end
 
