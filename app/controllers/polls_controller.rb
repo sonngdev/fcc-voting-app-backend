@@ -1,5 +1,5 @@
 class PollsController < ApplicationController
-  before_action :set_poll, only: [:show, :update, :destroy]
+  before_action :set_poll, only: [:show]
 
   def index
     @polls = Poll.all
