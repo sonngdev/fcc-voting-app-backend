@@ -1,24 +1,13 @@
-# README
+# Voting App backend API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app provides API that are consumed by this frontend client: https://github.com/thanhsonng/voting-app.
 
-Things you may want to cover:
+# Authentication/Authorization
 
-* Ruby version
+Authentication and authorization are implemented using the [JWT standard](https://jwt.io/).
 
-* System dependencies
+# Misc.
 
-* Configuration
+Ruby version: `2.4.2`
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Rails version: `5.2.2`
