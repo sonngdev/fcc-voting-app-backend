@@ -2,11 +2,11 @@
 
 This app provides API that are consumed by this frontend client: https://github.com/thanhsonng/voting-app.
 
-# Authentication/Authorization
+## Authentication/Authorization
 
 Authentication and authorization are implemented using the [JWT standard](https://jwt.io/).
 
-# Misc.
+## Misc.
 
 Ruby version: `2.4.2`
 
